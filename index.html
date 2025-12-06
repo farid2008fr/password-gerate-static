@@ -3,7 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Password Generator - Peter Design</title>
+    <title>Password Generator - SecureTools</title>
+    
+    <!-- ================================================================= -->
+    <!-- Google AdSense Main Script (Added)                                -->
+    <!-- ================================================================= -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6918441146187408"
+         crossorigin="anonymous"></script>
+    
     <style>
         /* --- CSS Variables for Peter Design UI --- */
         :root {
@@ -18,27 +25,107 @@
             --radius: 12px;
         }
 
-        /* --- General Setup --- */
+        /* --- General Setup & Layout --- */
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
             background-color: var(--bg-color);
             color: var(--text-primary);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
             margin: 0;
-            padding: 20px;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
         }
 
-        /* --- Main Card Container --- */
+        /* --- Navigation Bar Styling --- */
+        .site-header {
+            background-color: var(--card-bg);
+            border-bottom: 1px solid var(--border-color);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 1rem 20px;
+        }
+
+        .site-logo a {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--accent-color);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .site-logo a:hover {
+            color: var(--accent-hover);
+        }
+
+        .main-nav ul {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            color: var(--text-primary);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1rem;
+            padding-bottom: 5px;
+            border-bottom: 2px solid transparent;
+            transition: border-bottom-color 0.3s, color 0.3s;
+        }
+
+        .main-nav a:hover {
+            color: var(--accent-color);
+            border-bottom-color: var(--accent-color);
+        }
+
+        /* --- Ad Placeholder Styles (REMOVED AS REAL ADS ARE IN PLACE) --- */
+        /*
+        .ad-placeholder {
+            background-color: #f0f0f0;
+            border: 1px dashed #ccc;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #888;
+            font-size: 14px;
+            text-align: center;
+            padding: 10px;
+            margin: 20px auto;
+        }
+        .ad-banner {
+            max-width: 728px;
+            width: 100%;
+            height: 90px;
+        }
+        */
+
+        /* --- Main Content Area (Password Generator) --- */
+        .main-content {
+            max-width: 500px;
+            width: 100%;
+            margin: 0 auto;
+            padding: 0 20px;
+            flex-grow: 1;
+        }
+
         .container {
             background-color: var(--card-bg);
             padding: 2.5rem;
             border-radius: var(--radius);
             box-shadow: var(--shadow);
-            width: 100%;
-            max-width: 500px;
+            margin: 20px 0;
         }
 
         header {
@@ -135,7 +222,7 @@
             cursor: pointer;
         }
 
-        /* --- Slider Styling --- */
+        /* --- Slider & Checkbox Styling --- */
         input[type="range"] {
             -webkit-appearance: none;
             width: 60%;
@@ -176,7 +263,6 @@
             text-align: center;
         }
 
-        /* --- Checkbox Styling --- */
         input[type="checkbox"] {
             width: 20px;
             height: 20px;
@@ -227,90 +313,200 @@
             transform: scale(0.98);
         }
 
+        /* --- Footer Styles --- */
+        .site-footer {
+            background-color: var(--card-bg);
+            border-top: 1px solid var(--border-color);
+            margin-top: auto;
+            padding: 2rem 0;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .footer-links ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1rem 0;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+
+        .footer-links a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .footer-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .footer-copyright p {
+            margin: 0;
+        }
+
+
+        /* --- Responsive Design --- */
+        @media (max-width: 600px) {
+            .nav-container {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            .main-nav ul {
+                gap: 1rem;
+            }
+            .footer-links ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
         @media (max-width: 480px) {
             .container { padding: 1.5rem; }
             h1 { font-size: 1.5rem; }
             #password-output { font-size: 1.4rem; }
         }
     </style>
-    <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HR89XR2YSC"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-HR89XR2YSC');
-</script>
-    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6918441146187408"
-     crossorigin="anonymous"></script>
 </head>
 <body>
 
-    <main class="container">
-        <header>
-            <h1>Password Generator</h1>
-            <p class="subtitle">Create a strong and secure password</p>
-        </header>
-
-        <section class="password-display-wrapper">
-            <input type="text" id="password-output" readonly placeholder="Your password will appear here">
-            <div class="strength-meter">
-                <div class="strength-bar">
-                    <div class="strength-meter-fill" id="strength-meter-fill"></div>
-                </div>
-                <p id="strength-text">Strength: --</p>
+    <!-- ========================= NAVIGATION BAR ========================= -->
+    <header class="site-header">
+        <div class="nav-container">
+            <div class="site-logo">
+                <a href="#">SecureTools</a>
             </div>
-        </section>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Blog</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <!-- ==================================================================== -->
 
-        <section class="controls">
-            <div class="control-group">
-                <label for="length-slider">
-                    <span>Password Length</span>
-                    <div style="display: flex; align-items: center;">
-                        <input type="range" id="length-slider" min="8" max="32" value="16">
-                        <span id="length-value">16</span>
+    <!-- ================================================================= -->
+    <!-- TOP BANNER AD (INTEGRATED)                                       -->
+    <!-- ================================================================= -->
+    <div style="text-align: center; margin: 20px 0;">
+        <!-- Password -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-6918441146187408"
+             data-ad-slot="1888278220"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+        
+    <!-- Main Content Area -->
+    <main class="main-content">
+        <div class="container">
+            <header>
+                <h1>Password Generator</h1>
+                <p class="subtitle">Create a strong and secure password</p>
+            </header>
+
+            <section class="password-display-wrapper">
+                <input type="text" id="password-output" readonly placeholder="Your password will appear here">
+                <div class="strength-meter">
+                    <div class="strength-bar">
+                        <div class="strength-meter-fill" id="strength-meter-fill"></div>
                     </div>
-                </label>
-            </div>
-            
-            <div class="control-group">
-                <label for="uppercase">
-                    <span>Include Uppercase Letters</span>
-                    <input type="checkbox" id="uppercase" checked>
-                </label>
-            </div>
+                    <p id="strength-text">Strength: --</p>
+                </div>
+            </section>
 
-            <div class="control-group">
-                <label for="lowercase">
-                    <span>Include Lowercase Letters</span>
-                    <input type="checkbox" id="lowercase" checked>
-                </label>
-            </div>
+            <section class="controls">
+                <div class="control-group">
+                    <label for="length-slider">
+                        <span>Password Length</span>
+                        <div style="display: flex; align-items: center;">
+                            <input type="range" id="length-slider" min="8" max="32" value="16">
+                            <span id="length-value">16</span>
+                        </div>
+                    </label>
+                </div>
+                
+                <div class="control-group">
+                    <label for="uppercase">
+                        <span>Include Uppercase Letters</span>
+                        <input type="checkbox" id="uppercase" checked>
+                    </label>
+                </div>
 
-            <div class="control-group">
-                <label for="numbers">
-                    <span>Include Numbers</span>
-                    <input type="checkbox" id="numbers" checked>
-                </label>
-            </div>
+                <div class="control-group">
+                    <label for="lowercase">
+                        <span>Include Lowercase Letters</span>
+                        <input type="checkbox" id="lowercase" checked>
+                    </label>
+                </div>
 
-            <div class="control-group">
-                <label for="symbols">
-                    <span>Include Symbols</span>
-                    <input type="checkbox" id="symbols" checked>
-                </label>
-            </div>
-        </section>
+                <div class="control-group">
+                    <label for="numbers">
+                        <span>Include Numbers</span>
+                        <input type="checkbox" id="numbers" checked>
+                    </label>
+                </div>
 
-        <div class="action-buttons">
-            <button class="btn" id="generate-btn">Generate</button>
-            <button class="btn" id="copy-btn">Copy</button>
+                <div class="control-group">
+                    <label for="symbols">
+                        <span>Include Symbols</span>
+                        <input type="checkbox" id="symbols" checked>
+                    </label>
+                </div>
+            </section>
+
+            <div class="action-buttons">
+                <button class="btn" id="generate-btn">Generate</button>
+                <button class="btn" id="copy-btn">Copy</button>
+            </div>
         </div>
     </main>
 
+    <!-- ================================================================= -->
+    <!-- BOTTOM BANNER AD (INTEGRATED)                                    -->
+    <!-- ================================================================= -->
+    <div style="text-align: center; margin: 20px 0;">
+        <!-- Password -->
+        <ins class="adsbygoogle"
+             style="display:inline-block;width:728px;height:90px"
+             data-ad-client="ca-pub-6918441146187408"
+             data-ad-slot="1888278220"></ins>
+        <script>
+             (adsbygoogle = window.adsbygoogle || []).push({});
+        </script>
+    </div>
+
+    <!-- ========================= FOOTER ========================= -->
+    <footer class="site-footer">
+        <div class="footer-container">
+            <div class="footer-links">
+                <ul>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms of Service</a></li>
+                    <li><a href="#">About Us</a></li>
+                </ul>
+            </div>
+            <div class="footer-copyright">
+                <p>&copy; 2024 SecureTools. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- ==================================================================== -->
+
     <script>
-        // --- JavaScript Logic ---
+        // --- JavaScript Logic (Unchanged) ---
         const passwordOutput = document.getElementById('password-output');
         const strengthMeterFill = document.getElementById('strength-meter-fill');
         const strengthText = document.getElementById('strength-text');
@@ -328,18 +524,16 @@
         const NUMBER_CHARS = '0123456789';
         const SYMBOL_CHARS = '!@#$%^&*()_+-=[]{}|;:,.<>?';
 
-        // Event Listeners
         generateBtn.addEventListener('click', generatePassword);
         copyBtn.addEventListener('click', copyToClipboard);
         lengthSlider.addEventListener('input', () => {
             lengthValue.textContent = lengthSlider.value;
-            generatePassword(); // Regenerate on slider change
+            generatePassword();
         });
         [uppercaseCheck, lowercaseCheck, numbersCheck, symbolsCheck].forEach(checkbox => {
-            checkbox.addEventListener('change', generatePassword); // Regenerate on checkbox change
+            checkbox.addEventListener('change', generatePassword);
         });
 
-        // Initial generation on page load
         window.onload = generatePassword;
 
         function generatePassword() {
@@ -367,7 +561,7 @@
         }
 
         function updateStrengthMeter(password, isValid) {
-            strengthMeterFill.className = 'strength-meter-fill'; // Reset classes
+            strengthMeterFill.className = 'strength-meter-fill';
 
             if (!isValid) {
                 strengthText.textContent = 'Strength: --';
